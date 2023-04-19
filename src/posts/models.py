@@ -10,5 +10,9 @@ class Post (models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-def __str__ (self):
-    return str(self.title)
+    def __str__ (self):
+        return str(self.title)
+
+    @property
+    def like_count(self):
+        return self.liked.all().count()

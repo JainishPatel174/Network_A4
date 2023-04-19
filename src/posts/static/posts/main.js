@@ -36,7 +36,7 @@ const getData = () =>{
                                         <a href="#" class="btn btn-primary">Details</a>
                                     </div>
                                     <div class="col-2">
-                                        <a href="#" class="btn btn-primary">Like</a>
+                                        <a href="#" class="btn btn-primary">${el.liked ? `Unlike (${el.count})` :  `Like (${el.count})`}</a>
                                     </div>
                                 </div>
                             </div>
@@ -50,6 +50,7 @@ const getData = () =>{
             }
             else if(response.size <= visible)
             {
+                loadBtn.classList.add("not-visible")
                 endBox.textContent = "All Posts Loaded..."
             }
         },
